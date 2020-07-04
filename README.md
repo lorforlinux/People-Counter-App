@@ -86,15 +86,23 @@ From the main directory:
 ## Model Downloading & conversion
 ### 1. Download
 
-The model is taken from tensorflow [model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md). 
+The model is taken from tensorflow [model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md).
 
-- `$ wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz`
-- `$ tar -xvf ssd_mobilenet_v2_coco_2018_03_29.tar.gz`.
+```
+
+$ wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v2_coco_2018_03_29.tar.gz
+
+$ tar -xvf ssd_mobilenet_v2_coco_2018_03_29.tar.gz.
+
+```
 
 ### 2. Convert
 
-- `cd ssd_mobilenet_v2_coco_2018_03_29`
-- `python /opt/intel/openvino/deployment_tools/model_optimizer/mo_tf.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json --reverse_input_channel`
+```
+$ cd ssd_mobilenet_v2_coco_2018_03_29
+
+$ python /opt/intel/openvino/deployment_tools/model_optimizer/mo_tf.py --input_model frozen_inference_graph.pb --tensorflow_object_detection_api_pipeline_config pipeline.config --tensorflow_use_custom_operations_config /opt/intel/openvino/deployment_tools/model_optimizer/extensions/front/tf/ssd_v2_support.json --reverse_input_channel
+```
 
 
 ## Run the application
